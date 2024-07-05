@@ -9,8 +9,13 @@ const static_path = path.join(__dirname, "../public")
 
 app.use(express.static(static_path));
 
+app.set('view engine', 'ejs');
+
+// Set the views directory
+app.set('views', path.join(__dirname, '../views'));
+
 app.get('/', (req, res) => {
-    res.send("This is boom chiki chiki boom");
+    res.render("index");
 });
 
 app.listen(port, () => {
